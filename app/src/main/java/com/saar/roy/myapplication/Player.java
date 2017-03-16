@@ -1,5 +1,7 @@
 package com.saar.roy.myapplication;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -7,7 +9,7 @@ import java.util.Stack;
  */
 public class Player {
     private final Queue<Card> deck;
-    private final Stack<Card> field;
+    private Stack<Card> field;
 
     public void addCardsToDeck(Iterable<Card> cards) {
         for (Card card:cards
@@ -16,17 +18,21 @@ public class Player {
         }
     }
 
-    public Player() {0
+    public Player() {
         deck = new LinkedList<>();
         field = new Stack<>();
     }
 
-    public void throwCard() {
-        field.push(deck.remove());
-    }
+    public int getCardCount() {return deck.size();}
+
+    public void throwCard() {field.push(deck.remove());}
 
     public boolean isDeckEmpty() {
         return deck.isEmpty();
+    }
+
+    public void clearField() {
+        field = new Stack<Card>();
     }
 
     public Stack<Card> getField() {

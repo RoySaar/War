@@ -5,12 +5,12 @@
         android:fromDegrees="0"
         android:toDegrees="25"
         android:pivotY="80"
-        android:duration="250"
+        android:duration="400"
         >
     </rotate>
 
     <translate
-        android:startOffset="350"
+        android:startOffset="500"
         android:fromYDelta="1"
         android:toYDelta="1800"
         android:duration="500"

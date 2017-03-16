@@ -8,12 +8,12 @@ import android.graphics.drawable.Drawable;
  */
 public class Card {
     public final int serial;
-    public final value;
+    public int value;
 
     public Card(int serial) {
         this.serial = serial;
-        this.value = serial % 13 + 1;
-        if (this.value == 1)
-          this.value = 14;
+        value = serial % 13 + 1;
+        if (value == 1)
+          value = 14;
     }
 }
