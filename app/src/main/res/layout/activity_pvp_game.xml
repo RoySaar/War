@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_background"
+    >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleY="-1"
+            android:layout_marginTop="10dp"
+            android:scaleX="-1"
+            android:layout_marginLeft="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="26"
+                android:id="@+id/player2CardCount"
+                android:layout_row="1"
+                android:layout_column="4"
+                android:textSize="30sp"
+                android:textColor="#ffffff"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dp" />
+
+            <Button
+                android:layout_height="75dp"
+                android:id="@+id/player2Button"
+                android:layout_row="4"
+                android:layout_column="3"
+                android:textSize="20sp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/button_layout"
+                android:layout_width="75dp"
+                android:layout_gravity="center_horizontal" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="330dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="26"
+                android:id="@+id/player1CardCount"
+                android:layout_row="4"
+                android:layout_column="4"
+                android:textSize="30sp"
+                android:textColor="#ffffff"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_weight="1"
+                android:layout_marginLeft="20dp"
+                android:layout_gravity="center_vertical" />
+
+            <Button
+                android:layout_height="75dp"
+                android:id="@+id/player1Button"
+                android:layout_row="4"
+                android:layout_column="3"
+                android:textSize="20sp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/button_layout"
+                android:layout_width="75dp"
+                android:layout_weight="0"
+                android:layout_marginRight="10dp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_marginTop="65dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:id="@+id/player2Card"
+            android:layout_row="3"
+            android:layout_column="3"
+            android:layout_gravity="center_horizontal"
+            android:layout_above="@+id/player1Button"
+            android:layout_alignStart="@+id/cpuCard"
+            android:layout_marginBottom="24dp"
+            android:scaleY="-1" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:id="@+id/player1Card"
+            android:layout_row="2"
+            android:layout_column="3"
+            android:layout_gravity="center_horizontal"
+            android:layout_below="@+id/cpuCardCount"
+            android:layout_centerHorizontal="true" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/warImage" />
+
+        <TextView
+            android:text="WAR!"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/warText"
+            android:fontFamily="monospace"
+            android:textSize="95sp"
+            android:textStyle="normal|bold"
+            android:textColor="#ffffff"
+            android:alpha="0"
+            android:elevation="24dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="180dp" />
+
+    </LinearLayout>
+
+</FrameLayout>
