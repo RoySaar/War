@@ -14,8 +14,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Stack;
-
 public class GameActivity extends AppCompatActivity implements View.OnClickListener, Animation.AnimationListener  {
 
     Game game;
@@ -35,12 +33,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_game);
         game = new Game();
-        hitButton = (Button)findViewById(R.id.hitButton);
+        hitButton = (Button)findViewById(R.id.player1Button);
         hitButton.setOnClickListener(this);
         slideDown  = AnimationUtils.loadAnimation(this,R.anim.slide_down);
         slideDown.setAnimationListener(this);
@@ -67,17 +64,17 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     public void turnHandler() {
         hitButton.setEnabled(false);
         game.playEach();
-        playerCardImage.setImageResource(IMAGES[game.getTopPlayerCard()]);
-        cpuCardImage.setImageResource(IMAGES[game.getTopCpuCard()]);
+        playerCardImage.setImageResource(IMAGES[game.getTopPlaye1rCard()]);
+        cpuCardImage.setImageResource(IMAGES[game.getTopPlayer2Card()]);
         int turnResult = game.handlePlay();
         final Animation slide;
         switch (turnResult) {
-            case Game.CPU_WON:
+            case Game.PLAYER2_WON:
                 slide = slideUp;
                 playerCardImage.startAnimation(slide);
                 cpuCardImage.startAnimation(slide);
                 break;
-            case Game.PLAYER_WON:
+            case Game.PLAYER1_WON:
                 slide = slideDown;
                 playerCardImage.startAnimation(slide);
                 cpuCardImage.startAnimation(slide);
@@ -103,17 +100,17 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         }
         TextView playerCardsText = (TextView)findViewById(R.id.playerCardCount);
         TextView cpuCardsText = (TextView)findViewById(R.id.cpuCardCount);
-        playerCardsText.setText(String.valueOf(game.getPlayerCardCount()));
-        cpuCardsText.setText(String.valueOf(game.getCpuCardCount()));
+        playerCardsText.setText(String.valueOf(game.getPlayer1CardCount()));
+        cpuCardsText.setText(String.valueOf(game.getPlayer2CardCount()));
         int gameResult = game.gameResult();
         switch (gameResult) {
-            case Game.CPU_WON:
+            case Game.PLAYER2_WON:
                 game = new Game();
                 playerCardsText.setText("26");
                 cpuCardsText.setText("26");
                 Toast.makeText(this,"CPU Won!",Toast.LENGTH_LONG).show();
                 break;
-            case Game.PLAYER_WON:
+            case Game.PLAYER1_WON:
                 game = new Game();
                 playerCardsText.setText("26");
                 cpuCardsText.setText("26");

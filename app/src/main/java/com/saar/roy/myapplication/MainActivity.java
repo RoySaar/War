@@ -21,7 +21,8 @@ import java.util.Stack;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button playButton;
+    Button pvpButton;
+    Button pveButton;
     Button rulesButton;
     Dialog dialog;
 
@@ -32,9 +33,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
         Typeface ptBold = Typeface.createFromAsset(getAssets(),"fonts/pt_sans_bold.ttf");
-        playButton = (Button)findViewById(R.id.playButton);
-        playButton.setOnClickListener(this);
-        playButton.setTypeface(ptBold);
+        pvpButton = (Button)findViewById(R.id.pvpButton);
+        pvpButton.setOnClickListener(this);
+        pvpButton.setTypeface(ptBold);
+        pveButton = (Button)findViewById(R.id.pveButton);
+        pveButton.setOnClickListener(this);
+        pveButton.setTypeface(ptBold);
         rulesButton = (Button)findViewById(R.id.rulesButton);
         rulesButton.setOnClickListener(this);
         rulesButton.setTypeface(ptBold);
@@ -43,13 +47,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        if (view == playButton) {
+        // Play 1v1
+        if (view == pvpButton) {
+            Intent intent = new Intent(this,PvpGameActivity.class);
+            startActivity(intent);
+        }
+        // PLay vs CPU
+        if (view == pveButton) {
             Intent intent = new Intent(this,GameActivity.class);
             startActivity(intent);
         }
+        // Show Rules
         if (view == rulesButton) {
             createDialog();
         }
+        // Dismiss
         if (view.getId() == R.id.dismiss) {
             dialog.dismiss();
         }
